@@ -1,0 +1,32 @@
+
+
+.container{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.item{
+    background-color: #2222222f;
+    padding: 16px;
+    width: 100%;
+}
+
+.item .category{
+    width: fit-content;
+    background-color: blue;
+    padding: 8px;
+    border-radius: 16px;
+    color: #fff;
+}
+
+
+.item .question{
+    font-weight: 700;
+}
