@@ -76,29 +76,76 @@ function end() {
 // .then(end)
 
 
-fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood')
-.then(function (res) {
-    return res.json();
-})
-.then(function (Data) {
-    console.log(Data);
-})
-.then(function(){
-    fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=beef')
-    .then(function (res) {
-        return res.json();
-    })
-    .then(function (Data) {
-        console.log(Data);
-    })
-})
-.then(function(){
-    fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=chicken')
-    .then(function (res) {
-        return res.json();
-    })
-    .then(function (Data) {
-        console.log(Data);
-    })
-})
+// fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood')
+// .then(function (res) {
+//     return res.json();
+// })
+// .then(function (Data) {
+//     console.log(Data);
+// })
+// .then(function(){
+//     fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=beef')
+//     .then(function (res) {
+//         return res.json();
+//     })
+//     .then(function (Data) {
+//         console.log(Data);
+//     })
+// })
+// .then(function(){
+//     fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=chicken')
+//     .then(function (res) {
+//         return res.json();
+//     })
+//     .then(function (Data) {
+//         console.log(Data);
+//     })
+// })
     
+
+(async function(){
+
+    var iniConfig = {
+        method:"GET",
+        headers:{
+            Authorization:"Bearer f08e28f89d7b4fe6ad880821572ddd66",
+        },
+    }
+
+    var response = await fetch('https://newsapi.org/v2/everything?language=en&domains=bbc.com',iniConfig)
+
+    response = await response.json();
+
+    console.log(response);
+
+    var htmlRow = document.querySelector('.row');
+
+    for (var articel of response.articles) {
+        
+        var itemDiv = document.createElement('div')
+        itemDiv.classList.add('item')
+
+        var imageDivParent = document.createElement('div');
+
+        var imageChild = document.createElement('img');
+
+        imageChild.src = articel.urlToImage;
+        imageChild.alt = articel.title;
+
+        imageDivParent.insertAdjacentElement('afterbegin',imageChild)
+
+        itemDiv.insertAdjacentElement('beforeend',imageDivParent)
+
+
+        htmlRow.insertAdjacentElement('beforeend',itemDiv)
+
+    }
+    
+
+    
+})(); //self invoke "Call" function
+
+
+
+
+
