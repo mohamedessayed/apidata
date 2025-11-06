@@ -105,14 +105,8 @@ function end() {
 
 (async function(){
 
-    var iniConfig = {
-        method:"GET",
-        headers:{
-            Authorization:"Bearer f08e28f89d7b4fe6ad880821572ddd66",
-        },
-    }
+    var response = await fetch('https://fakestoreapi.com/products')
 
-    var response = await fetch('https://newsapi.org/v2/everything?language=en&domains=bbc.com',iniConfig)
 
     response = await response.json();
 
@@ -120,7 +114,7 @@ function end() {
 
     var htmlRow = document.querySelector('.row');
 
-    for (var articel of response.articles) {
+    for (var articel of response) {
         
         var itemDiv = document.createElement('div')
         itemDiv.classList.add('item')
@@ -129,7 +123,7 @@ function end() {
 
         var imageChild = document.createElement('img');
 
-        imageChild.src = articel.urlToImage;
+        imageChild.src = articel.image;
         imageChild.alt = articel.title;
 
         imageDivParent.insertAdjacentElement('afterbegin',imageChild)
