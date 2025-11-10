@@ -1,0 +1,1 @@
+export let saleProduct = (precentage,price)=>price*precentage
