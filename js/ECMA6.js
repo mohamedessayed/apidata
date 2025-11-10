@@ -23,19 +23,35 @@
  * 
  * }
  * 
+ * object
+ * 
+ * dusrtucting object --> let {key1,key2} = object
+ * 
+ * array
+ * 
+ * map ==> let pricesAfterVatUsingMapFuction = prices.map(price=> price*1.14)
+ * filter ==> let pricesAfterVatUsingMapFuction = prices.filter(price=> price>500)
+ * 
+ * dusrtucting object --> let [var1,var2] = array
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 
 
-fetch('https://fakestoreapi.com/products')
-  .then(response => response.json())
-  .then(data => {
-    
-    for (const product of data) {
-        
-    }
-    
-  });
+let prices = [100,115,900,200];
 
+let filteredPrice = [];
+
+for (const element of prices) {
+    (element>500)&&filteredPrice.push(element)
+
+    // if (element>500) {
+    //     filteredPrice.push(element)
+    // }
+}
 
 
 
